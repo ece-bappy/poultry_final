@@ -23,5 +23,5 @@ for variable in variables:
     plt.title(f"Box Plot for {variable} Between Days")
     plt.xlabel("Day")
     plt.ylabel(variable)
-    plt.savefig(f"{variable}_box_plots_all_days.png", dpi=300)
+    plt.savefig(f"img/{variable}_box_plots_all_days.png", dpi=300)
     plt.close()
