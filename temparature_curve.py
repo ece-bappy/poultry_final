@@ -1,35 +1,39 @@
 import csv
 import matplotlib.pyplot as plt
+import pandas as pd
 
-# Load data from CSV file
-hours = []
-temperatures = []
-days = []
+# Read the data from the CSV file
+data = pd.read_csv('temperature_humidity_gas_data.csv')
 
-with open('data.csv', mode='r') as file:
-    reader = csv.DictReader(file)
-    for row in reader:
-        hours.append(row['Hour'])
-        temperatures.append(float(row['Temperature']))
-        days.append(int(row['Day_Number']))
-
-# Plot each day's temperature curve
-unique_days = set(days)
-for day in unique_days:
-    day_temperatures = [temp for temp, d, h in zip(temperatures, days, hours) if d == day]
-    day_hours = [h for d, h in zip(days, hours) if d == day]
-    plt.plot(day_hours, day_temperatures, label=f"Day {day}")
-
-# Add labels and legend
+# Plot Temperature in a separate window
+plt.figure(figsize=(10, 6))
+for day in data['Day_Number'].unique():
+    day_data = data[data['Day_Number'] == day]
+    plt.plot(day_data['Hour'], day_data['Temperature'], label=f'Day {day}')
+plt.title('Hourly Temperature for 35 Days')
 plt.xlabel('Hour')
-plt.ylabel('Temperature')
-plt.title('Temperature Variation by Day')
-plt.legend()
+plt.ylabel('Temperature (°C)')
+plt.legend(loc='upper right', bbox_to_anchor=(1.15, 1))
+plt.show()
 
-# Use logarithmic scale for the y-axis
-plt.yscale('log')
+# Plot Humidity in a separate window
+plt.figure(figsize=(10, 6))
+for day in data['Day_Number'].unique():
+    day_data = data[data['Day_Number'] == day]
+    plt.plot(day_data['Hour'], day_data['Humidity'], label=f'Day {day}')
+plt.title('Hourly Humidity for 35 Days')
+plt.xlabel('Hour')
+plt.ylabel('Humidity (%)')
+plt.legend(loc='upper right', bbox_to_anchor=(1.15, 1))
+plt.show()
 
-# Show plot
-plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-plt.tight_layout()  # Adjust layout to prevent overlapping labels
+# Plot Gas Level in a separate window
+plt.figure(figsize=(10, 6))
+for day in data['Day_Number'].unique():
+    day_data = data[data['Day_Number'] == day]
+    plt.plot(day_data['Hour'], day_data['Gas Level'], label=f'Day {day}')
+plt.title('Hourly Gas Level for 35 Days')
+plt.xlabel('Hour')
+plt.ylabel('Gas Level')
+plt.legend(loc='upper right', bbox_to_anchor=(1.15, 1))
 plt.show()

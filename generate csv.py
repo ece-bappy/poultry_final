@@ -1,59 +1,69 @@
 import csv
-import random
+import numpy as np
 
 # Define the header
 header = ["Hour", "Temperature", "Humidity", "Gas Level", "Day_Number"]
 
-# Function to generate temperature trend across multiple steps
-def generate_group_temperatures(start_temp, end_temp, steps):
-    step = (start_temp - end_temp) / (steps - 1)
-    return [round(start_temp - step * i, 2) for i in range(steps)]
+# Function to generate the temperature for a given hour
+def generate_temperature(hour):
+    if 7 <= hour <= 15:  # Increasing temperature from 7:00 to 15:00
+        base_temp = 20.5 + (4 * (hour - 7) / 8)
+    elif 16 <= hour <= 23:  # Decreasing temperature from 16:00 to 23:00
+        base_temp = 24.5 - (4 * (hour - 16) / 8)
+    elif 0 <= hour <= 6:  # Decreasing temperature from 0:00 to 6:00
+        base_temp = 24.5 - (4 * (hour + 8) / 8)
+    else:
+        base_temp = 20.5  # Default in case of error
+
+    # Add some random variation with a standard deviation of 0.7
+    temperature = np.random.normal(base_temp, 0.7)
+    return round(temperature, 2)
+
+# Function to generate the humidity for a given hour
+def generate_humidity(hour):
+    if 0 <= hour <= 6:  # Decreasing humidity from 0:00 to 6:00
+        base_humidity = 75 - (18 * hour / 6)
+    elif 7 <= hour <= 15:  # Decreasing humidity from 7:00 to 15:00
+        base_humidity = 75 - (18 * (hour - 6) / 8)
+    elif 16 <= hour <= 23:  # Increasing humidity from 16:00 to 23:00
+        base_humidity = 57 + (18 * (hour - 15) / 8)
+    else:
+        base_humidity = 57  # Default in case of error
+
+    # Add some random variation with a standard deviation of 2.5
+    humidity = np.random.normal(base_humidity, 2.5)
+    return round(humidity, 2)
+
+# Function to generate the gas level for a given hour
+def generate_gas_level(hour):
+    if 7 <= hour <= 15:  # Increasing gas level from 7:00 to 15:00
+        base_gas = 17 + (3 * (hour - 7) / 8)
+    elif 16 <= hour <= 23:  # Decreasing gas level from 16:00 to 23:00
+        base_gas = 20 - (3 * (hour - 16) / 8)
+    elif 0 <= hour <= 6:  # Decreasing gas level from 0:00 to 6:00
+        base_gas = 20 - (3 * (hour + 8) / 8)
+    else:
+        base_gas = 17  # Default in case of error
+
+    # Add some random variation with a standard deviation of 0.45
+    gas_level = np.random.normal(base_gas, 0.45)
+    return round(gas_level, 2)
 
 # Create the data
 data = []
-minutes_increments = [0, 15, 30, 45]
-hours_per_day = 24
-days = 35
-total_steps_per_day = len(minutes_increments) * hours_per_day * days
 
-# Define temperature ranges for each group of hours
-temperature_ranges = [
-    (22.99, 22.55),  # 0 to 3
-    (22.55, 22.45),  # 3 to 6
-    (22.45, 22.60),  # 6 to 9
-    (22.60, 23.45),  # 9 to 11
-    (23.60, 25.40),  # 11 to 15
-    (25.20, 24.80),  # 15 to 19
-    (24.00, 23.20)   # 19 to 23
-]
-
-# Generate temperatures for each hour segment and repeat for each day
-adjusted_temperatures = []
-for start_temp, end_temp in temperature_ranges:
-    group_temps = generate_group_temperatures(start_temp, end_temp, len(minutes_increments) * 3)
-    adjusted_temperatures.extend(group_temps)
-
-# Extend the temperature list to cover all days
-while len(adjusted_temperatures) < total_steps_per_day:
-    adjusted_temperatures *= 2
-
-# Truncate the list if it exceeds the required length
-adjusted_temperatures = adjusted_temperatures[:total_steps_per_day]
-
-# Fill the data for each day
-index = 0
-for day in range(1, days + 1):
-    for hour in range(hours_per_day):
-        for minute in minutes_increments:
-            time = f"{hour}:{minute:02d}"
-            temperature = adjusted_temperatures[index]
-            data.append([time, f"{temperature:.2f}", "", "", day])
-            index += 1
+for day in range(1, 36):
+    for hour in range(24):
+        time = f"{hour}:00"
+        temperature = generate_temperature(hour)
+        humidity = generate_humidity(hour)
+        gas_level = generate_gas_level(hour)
+        data.append([time, temperature, humidity, gas_level, day])
 
 # Create and write to the CSV file
-with open('data.csv', mode='w', newline='') as file:
+with open('temperature_humidity_gas_data.csv', mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(header)
     writer.writerows(data)
 
-print("data.csv has been created with the specified headings and data.")
+print("temperature_humidity_gas_data.csv has been created with the specified headings and data.")
