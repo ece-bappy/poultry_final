@@ -15,7 +15,7 @@ plt.xlabel("Hour")
 plt.ylabel("Temperature (°C)")
 plt.xticks(range(0, 24, 2))  # Customizing x-axis ticks every 2 hours
 plt.legend(loc="upper right", bbox_to_anchor=(1.15, 1))
-plt.savefig("img_t/temperature_plot.png", dpi=300)  # Save the figure with high quality
+plt.savefig("t_temperature_plot.png", dpi=300)  # Save the figure with high quality
 plt.close()
 
 # Plot Humidity
@@ -28,7 +28,7 @@ plt.xlabel("Hour")
 plt.ylabel("Humidity (%)")
 plt.xticks(range(0, 24, 2))  # Customizing x-axis ticks every 2 hours
 plt.legend(loc="upper right", bbox_to_anchor=(1.15, 1))
-plt.savefig("img_t/humidity_plot.png", dpi=300)  # Save the figure with high quality
+plt.savefig("t_humidity_plot.png", dpi=300)  # Save the figure with high quality
 plt.close()
 plt.show
 
@@ -43,5 +43,5 @@ plt.xlabel("Hour")
 plt.ylabel("Gas Level")
 plt.xticks(range(0, 24, 2))  # Customizing x-axis ticks every 2 hours
 plt.legend(loc="upper right", bbox_to_anchor=(1.15, 1))
-plt.savefig("img_t/gas_level_plot.png", dpi=300)  # Save the figure with high quality
+plt.savefig("t_gas_level_plot.png", dpi=300)  # Save the figure with high quality
 plt.close()

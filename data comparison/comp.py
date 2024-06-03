@@ -64,5 +64,5 @@ for i, parameter in enumerate(parameters):
     plt.title(f"Histogram of {parameter}")
     plt.legend()
 plt.tight_layout()
-plt.savefig("img_t/histograms.png", dpi=300)
+plt.savefig("img/histograms.png", dpi=300)
 plt.close()
