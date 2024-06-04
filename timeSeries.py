@@ -38,7 +38,7 @@ sns.scatterplot(
     legend=False,
 )
 sns.regplot(x="Temperature", y="Gas Level", data=data, scatter=False, color="blue")
-plt.title("img/Temperature vs. Gas Level")
+plt.title("Temperature vs. Gas Level")
 plt.xlabel("Temperature")
 plt.ylabel("Gas Level")
 plt.tight_layout()
