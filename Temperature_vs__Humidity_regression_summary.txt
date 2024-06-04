@@ -1,0 +1,25 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Humidity   R-squared:                       0.428
+Model:                            OLS   Adj. R-squared:                  0.427
+Method:                 Least Squares   F-statistic:                     626.7
+Date:                Mon, 03 Jun 2024   Prob (F-statistic):          1.04e-103
+Time:                        17:43:16   Log-Likelihood:                -2493.5
+No. Observations:                 840   AIC:                             4991.
+Df Residuals:                     838   BIC:                             5000.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===============================================================================
+                  coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const         134.1639      2.365     56.737      0.000     129.523     138.805
+Temperature    -2.6012      0.104    -25.033      0.000      -2.805      -2.397
+==============================================================================
+Omnibus:                       22.144   Durbin-Watson:                   0.982
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               22.880
+Skew:                          -0.386   Prob(JB):                     1.08e-05
+Kurtosis:                       2.757   Cond. No.                         331.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

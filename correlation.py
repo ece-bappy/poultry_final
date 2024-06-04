@@ -5,7 +5,7 @@ import statsmodels.api as sm
 import csv
 
 # Load the data from the uploaded CSV file
-file_path = 'temperature_humidity_gas_data.csv'
+file_path = 'controlled_poultry_shed_data.csv'
 data = pd.read_csv(file_path)
 
 # Function to perform linear regression and return the summary

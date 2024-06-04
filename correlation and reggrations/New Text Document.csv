@@ -1,0 +1,4 @@
+Regression Analysis,Dependent Variable,Independent Variable,R-squared,F-statistic,Prob (F-statistic),Coefficient,Std. Error,t-value,P>|t|,95% Confidence Interval,Constant,Std. Error (Constant),t-value (Constant),P>|t| (Constant),95% Confidence Interval (Constant)
+Humidity vs. Gas Levels,Gas Level,Humidity,0.418,601.0,1.72e-100,-0.0985,0.004,-24.516,0.000,"[-0.106, -0.091]",25.7104,0.303,84.934,0.000,"[25.116, 26.305]"
+Temperature vs. Gas Levels,Gas Level,Temperature,0.634,1453.0,3.50e-185,0.4825,0.013,38.116,0.000,"[0.458, 0.507]",7.3595,0.288,25.545,0.000,"[6.794, 7.925]"
+Temperature vs. Humidity,Humidity,Temperature,0.428,626.7,1.04e-103,-2.6012,0.104,-25.033,0.000,"[-2.805, -2.397]",134.1639,2.365,56.737,0.000,"[129.523, 138.805]"

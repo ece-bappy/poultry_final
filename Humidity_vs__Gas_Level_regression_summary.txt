@@ -1,0 +1,25 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              Gas Level   R-squared:                       0.418
+Model:                            OLS   Adj. R-squared:                  0.417
+Method:                 Least Squares   F-statistic:                     601.0
+Date:                Mon, 03 Jun 2024   Prob (F-statistic):          1.72e-100
+Time:                        17:43:16   Log-Likelihood:                -920.44
+No. Observations:                 840   AIC:                             1845.
+Df Residuals:                     838   BIC:                             1854.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         25.7104      0.303     84.934      0.000      25.116      26.305
+Humidity      -0.0985      0.004    -24.516      0.000      -0.106      -0.091
+==============================================================================
+Omnibus:                        1.382   Durbin-Watson:                   1.090
+Prob(Omnibus):                  0.501   Jarque-Bera (JB):                1.464
+Skew:                           0.084   Prob(JB):                        0.481
+Kurtosis:                       2.884   Cond. No.                         913.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
