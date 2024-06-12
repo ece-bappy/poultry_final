@@ -1,0 +1,80 @@
+OLS Regression Analysis: Temperature vs Gas Level
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              Gas Level   R-squared:                       0.634
+Model:                            OLS   Adj. R-squared:                  0.634
+Method:                 Least Squares   F-statistic:                     1453.
+Date:                Wed, 12 Jun 2024   Prob (F-statistic):          3.50e-185
+Time:                        16:23:26   Log-Likelihood:                -725.18
+No. Observations:                 840   AIC:                             1454.
+Df Residuals:                     838   BIC:                             1464.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===============================================================================
+                  coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const           7.3595      0.288     25.545      0.000       6.794       7.925
+Temperature     0.4825      0.013     38.116      0.000       0.458       0.507
+==============================================================================
+Omnibus:                        1.521   Durbin-Watson:                   1.890
+Prob(Omnibus):                  0.468   Jarque-Bera (JB):                1.430
+Skew:                           0.099   Prob(JB):                        0.489
+Kurtosis:                       3.040   Cond. No.                         331.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+OLS Regression Analysis: Temperature vs Humidity
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Humidity   R-squared:                       0.428
+Model:                            OLS   Adj. R-squared:                  0.427
+Method:                 Least Squares   F-statistic:                     626.7
+Date:                Wed, 12 Jun 2024   Prob (F-statistic):          1.04e-103
+Time:                        16:23:26   Log-Likelihood:                -2493.5
+No. Observations:                 840   AIC:                             4991.
+Df Residuals:                     838   BIC:                             5000.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===============================================================================
+                  coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const         134.1639      2.365     56.737      0.000     129.523     138.805
+Temperature    -2.6012      0.104    -25.033      0.000      -2.805      -2.397
+==============================================================================
+Omnibus:                       22.144   Durbin-Watson:                   0.982
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               22.880
+Skew:                          -0.386   Prob(JB):                     1.08e-05
+Kurtosis:                       2.757   Cond. No.                         331.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+OLS Regression Analysis: Humidity vs Gas Level
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:              Gas Level   R-squared:                       0.418
+Model:                            OLS   Adj. R-squared:                  0.417
+Method:                 Least Squares   F-statistic:                     601.0
+Date:                Wed, 12 Jun 2024   Prob (F-statistic):          1.72e-100
+Time:                        16:23:26   Log-Likelihood:                -920.44
+No. Observations:                 840   AIC:                             1845.
+Df Residuals:                     838   BIC:                             1854.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         25.7104      0.303     84.934      0.000      25.116      26.305
+Humidity      -0.0985      0.004    -24.516      0.000      -0.106      -0.091
+==============================================================================
+Omnibus:                        1.382   Durbin-Watson:                   1.090
+Prob(Omnibus):                  0.501   Jarque-Bera (JB):                1.464
+Skew:                           0.084   Prob(JB):                        0.481
+Kurtosis:                       2.884   Cond. No.                         913.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
