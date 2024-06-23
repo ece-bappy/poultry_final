@@ -14,17 +14,34 @@ if 'Hour' not in traditional_data.columns or 'Hour' not in controlled_data.colum
 def std_vs_hour(data):
     return data.groupby('Hour').std()
 
+# Function to compute median vs hour
+def median_vs_hour(data):
+    return data.groupby('Hour').median()
+
+# Function to compute mean vs hour
+def mean_vs_hour(data):
+    return data.groupby('Hour').mean()
+
 # Compute std vs hour for both environments
 std_traditional = std_vs_hour(traditional_data)
 std_controlled = std_vs_hour(controlled_data)
+
+# Compute median vs hour for both environments
+median_traditional = median_vs_hour(traditional_data)
+median_controlled = median_vs_hour(controlled_data)
+
+# Compute mean vs hour for both environments
+mean_traditional = mean_vs_hour(traditional_data)
+mean_controlled = mean_vs_hour(controlled_data)
 
 # Parameters to plot
 parameters = ["Temperature", "Humidity", "Gas Level"]
 
 # Create plots
-plt.figure(figsize=(15, 10))
+plt.figure(figsize=(22, 15))
 for i, parameter in enumerate(parameters):
-    plt.subplot(2, 2, i + 1)
+    # Standard Deviation comparison
+    plt.subplot(3, 3, 3*i + 1)
     plt.plot(std_traditional.index, std_traditional[parameter], label='Traditional', color='blue')
     plt.plot(std_controlled.index, std_controlled[parameter], label='Controlled', color='green')
     plt.xlabel('Hour')
@@ -33,6 +50,26 @@ for i, parameter in enumerate(parameters):
     plt.legend()
     plt.xticks(np.arange(0, 24, step=2))  # Set x-axis ticks at intervals of 2 hours
 
+    # Median comparison
+    plt.subplot(3, 3, 3*i + 2)
+    plt.plot(median_traditional.index, median_traditional[parameter], label='Traditional', color='blue')
+    plt.plot(median_controlled.index, median_controlled[parameter], label='Controlled', color='green')
+    plt.xlabel('Hour')
+    plt.ylabel(f'Median of {parameter}')
+    plt.title(f'Median vs Hour for {parameter}')
+    plt.legend()
+    plt.xticks(np.arange(0, 24, step=2))  # Set x-axis ticks at intervals of 2 hours
+
+    # Mean comparison
+    plt.subplot(3, 3, 3*i + 3)
+    plt.plot(mean_traditional.index, mean_traditional[parameter], label='Traditional', color='blue')
+    plt.plot(mean_controlled.index, mean_controlled[parameter], label='Controlled', color='green')
+    plt.xlabel('Hour')
+    plt.ylabel(f'Mean of {parameter}')
+    plt.title(f'Mean vs Hour for {parameter}')
+    plt.legend()
+    plt.xticks(np.arange(0, 24, step=2))  # Set x-axis ticks at intervals of 2 hours
+
 plt.tight_layout()
-plt.savefig("img/std_vs_hour_plot.png", dpi=300)
-plt.close
+plt.savefig("img/std_median_mean_vs_hour_plot.jpg", dpi=500)
+plt.close()

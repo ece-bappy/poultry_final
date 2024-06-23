@@ -15,16 +15,18 @@ controlled_filtered = controlled_data[relevant_columns]
 traditional_corr_matrix = traditional_filtered.corr()
 controlled_corr_matrix = controlled_filtered.corr()
 
+# Create a figure with 1x2 grid layout
+fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+
 # Plot the traditional shed correlation heatmap
-plt.figure(figsize=(8, 6))
-sns.heatmap(traditional_corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", cbar_kws={'label': 'Correlation Coefficient'})
-plt.title("Correlation Heatmap: Traditional Shed")
-plt.savefig("img/traditional_shed_correlation_heatmap.png", dpi=300)
-plt.close()
+sns.heatmap(traditional_corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", cbar_kws={'label': 'Correlation Coefficient'}, ax=axes[0])
+axes[0].set_title("Correlation Heatmap: Traditional Shed")
 
 # Plot the controlled shed correlation heatmap
-plt.figure(figsize=(8, 6))
-sns.heatmap(controlled_corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", cbar_kws={'label': 'Correlation Coefficient'})
-plt.title("Correlation Heatmap: Controlled Shed")
-plt.savefig("img/controlled_shed_correlation_heatmap.png", dpi=300)
+sns.heatmap(controlled_corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", cbar_kws={'label': 'Correlation Coefficient'}, ax=axes[1])
+axes[1].set_title("Correlation Heatmap: Controlled Shed")
+
+# Save the combined figure
+plt.tight_layout()
+plt.savefig("img/combined_shed_correlation_heatmap.jpg", dpi=600)
 plt.close()

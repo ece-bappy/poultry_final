@@ -35,16 +35,16 @@ def plot_comparison(parameter, ylabel, ax):
     ax.legend(loc="upper right", bbox_to_anchor=(1.15, 1))
 
 # Create a figure with subplots
-fig, axs = plt.subplots(2, 2, figsize=(20, 12))  # 2x2 layout, with overall figure size
+fig, axs = plt.subplots(3, 3, figsize=(20, 12))  # 2x2 layout, with overall figure size
 
 # Plot Temperature Comparison
 plot_comparison("Temperature", "Temperature (°C)", axs[0, 0])
 
 # Plot Humidity Comparison
-plot_comparison("Humidity", "Humidity (%)", axs[0, 1])
+plot_comparison("Humidity", "Humidity (%)", axs[1, 0])
 
 # Plot Gas Level Comparison
-plot_comparison("Gas Level", "Gas Level", axs[1, 0])
+plot_comparison("Gas Level", "Gas Level", axs[2, 0])
 
 # Remove the empty subplot (bottom right)
 fig.delaxes(axs[1, 1])
@@ -53,5 +53,5 @@ fig.delaxes(axs[1, 1])
 plt.tight_layout()
 
 # Save the figure with high quality
-plt.savefig("img/comparison_plots.png", dpi=300)
+plt.savefig("img/comparison_plotstit.png", dpi=300)
 plt.close()

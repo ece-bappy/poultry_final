@@ -38,5 +38,5 @@ for i, parameter in enumerate(parameters):
 plt.tight_layout()
 
 # Save the figure with 300 dpi
-plt.savefig("poultry_heatmaps.png", dpi=300)
+plt.savefig("poultry_heatmaps1.jpg", dpi=600)
 
